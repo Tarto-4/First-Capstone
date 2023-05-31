@@ -28,7 +28,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 My-Portfolio <a name="about-project"></a>
+# 📖 First-Capstone <a name="about-project"></a>
 
 **First-Capstone project** is a simple project. It is a project created as part of Microverse curriculum, it is a two page website designed for Music Festal in Mailibu. It has been designed using HTML, CSS, JS and some parts are designed dynamically like the 'the speakers' section' part, and has the functionality for both mobile-first and desktop-first versions.
 
