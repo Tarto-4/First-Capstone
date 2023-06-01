@@ -1,113 +1,94 @@
-function ReadElement(selector) {
-  return document.querySelector(selector);
+const openMenu = document.querySelector('.ham-icon');
+const closeMenu = document.querySelector('.close-button');
+const menu = document.querySelector('.menu');
+const menuItems = document.querySelectorAll('.mobile-menu-item');
+
+const openModal = (e) => {
+  menu.style.display = 'block';
+  e.preventDefault();
+};
+const closeModal = () => {
+  menu.style.display = 'none';
+};
+
+openMenu.addEventListener('click', openModal);
+closeMenu.addEventListener('click', closeModal);
+
+for (let i = 0; i < menuItems.length; i += 1) {
+  menuItems[i].addEventListener('click', closeModal);
 }
 
-const menu = ReadElement('#menu-image');
-const nav = ReadElement('.mobile-nav');
-const closeNav = ReadElement('.cross');
-const take = ReadElement('.mobile-nav-ul');
-
-function addMenu(selected, modalPart, opener) {
-  return selected.addEventListener('click', () => {
-    modalPart.classList.add(opener);
-    modalPart.style.top = '0px';
-  });
-}
-
-function removeMenu(selected, modalPart, remover) {
-  return selected.addEventListener('click', () => modalPart.classList.remove(remover));
-}
-
-addMenu(menu, nav, 'nav-toggle');
-removeMenu(closeNav, nav, 'nav-toggle');
-removeMenu(take, nav, 'nav-toggle');
+// Speakers
 
 const speakers = [
   {
-    name: 'Billie Eilish',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/Billie.png',
+    id: 0,
+    image: 'assets/cosgrove.png',
+    speakerName: 'Umar Abdullahi',
+    speakerPosition:
+      'Chairman/Chief Executive Officer, Cosgrove Real Estate Company LTD.',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
   {
-    name: 'GiveOn',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/Giveon.png',
+    id: 1,
+    image: 'assets/Chinua.jpg',
+    speakerName: 'Chinua Azubike',
+    speakerPosition:
+      'Managing Director/Chief Executive Officer, InfraCredit Company LTD.',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
   {
-    name: 'Nasty C',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/NastyC.png',
+    id: 2,
+    image: 'assets/istrom.jfif',
+    speakerName: 'Rayyan Husseini',
+    speakerPosition:
+      'Managing Director/Chief Executive Officer, Istrom Dynamis Real Estate Company LTD.',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
   {
-    name: 'Uncle Waffles',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/Waffles.png',
+    id: 3,
+    image: 'assets/minister.jfif',
+    speakerName: 'Babatunde Fashola',
+    speakerPosition:
+      'Honorable Minister, Ministry of Works and Housing, Federal Republic of Nigeria',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
   {
-    name: 'Meghan Trainor',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/Meghan.png',
+    id: 4,
+    image: 'assets/lotus-bank-md.jpg',
+    speakerName: 'Kafilat Araoye',
+    speakerPosition:
+      'Managing Director/Chief Executive Officer, Lotus Bank Nigeria LTD.',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
   {
-    name: 'Kgololo Polelo',
-    about: 'A singer-songwriter and television personality.',
-    quote: 'Rhythm and Harmony find their way into the inward places of the soul.',
-    picture: 'assets/Kgololo.png',
+    id: 5,
+    image: 'assets/mortgage.jfif',
+    speakerName: 'Arc. Ahmad Musa',
+    speakerPosition:
+      'Managing Director/Chief Executive Officer, Federal Mortgage Bank of Nigeria LTD.',
+    note: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit Obcaecati accusamus ullam, dignissimos fuga dicta',
   },
 ];
 
-document.querySelector('.carry-speaker').innerHTML = speakers.map((speak) => `
-  <article  class="col-12 col-md-6 speaker-card mt-4">
-    <div class="image-holder">
-      <img src=${speak.picture} width="120" height="90%" alt="speaker 1">
-    </div>
-    <div class="speaker-info pl-4 pt-4">
-        <h4 class="speaker-name">${speak.name}</h4>
-        <i class="speaker-about">${speak.about}</i>
-        <hr class="line-breaker">
-        <p class="speaker-quote">${speak.quote}</p>
-     </div>
-    </article >`).join('');
+const mainSpeakers = document.querySelector('.speakers');
 
-const myPrograms = [
-  {
-    title: 'Director',
-    description: 'People love and respect musicians because music has the power to evoke emotions and connect with people on a deep level.',
-    image: 'assets/Lecture.png',
-  },
-  {
-    title: 'Exhibition',
-    description: 'People love and respect musicians because music has the power to evoke emotions and connect with people on a deep level.',
-    image: 'assets/CCExhibition.png',
-  },
-  {
-    title: 'Forum',
-    description: 'People love and respect musicians because music has the power to evoke emotions and connect with people on a deep level.',
-    image: 'assets/Forum.png',
-  },
-  {
-    title: 'Workshop',
-    description: 'People love and respect musicians because music has the power to evoke emotions and connect with people on a deep level.',
-    image: 'assets/Workshop.png',
-  },
-  {
-    title: 'CC Ignite',
-    description: 'People love and respect musicians because music has the power to evoke emotions and connect with people on a deep level.',
-    image: 'assets/CCIgnite.png',
-  },
-];
+speakers.forEach((speakers) => {
+  const speaker = document.createElement('div'); // div for each project = projectElement
+  speaker.classList.add('speaker');
 
-document.querySelector('.program-container').innerHTML = myPrograms.map((program) => `
-      <article  class="container p-2 ">
-          <div class="d-flex align-items-center program-card p-2">
-              <img src=${program.image} width="50" height="50" alt="lecture">
-              <h4 class="program-title px-2">${program.title}</h4>
-              <span class="px-1 text-white">${program.description}</span>
+  speaker.innerHTML = `
+          <img src="${speakers.image}" alt="pic" class="speaker-img" />
+          <div class="profile">
+            <h4 class="speaker-name">${speakers.speakerName}</h4>
+            <p class="speaker-position">
+              ${speakers.speakerPosition}
+            </p>
+            <hr class="hr-profile" />
+            <p class="speaker-note">
+              ${speakers.note}
+            </p>
           </div>
-      </article >
-  `).join('');
+  `;
+  mainSpeakers.appendChild(speaker);
+});
