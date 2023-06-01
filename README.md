@@ -141,7 +141,7 @@ Example command:
 
 You can deploy this project using:
 
-Your working browser
+This link: https://tarto-4.github.io/First-Capstone/ in your working browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
